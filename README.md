@@ -9,7 +9,7 @@ You want to teach kids about prime numbers by rearranging small tiles (denoted h
 
 For instance, given 6 tiles `******`, a valid rearrangement would be
 
-`***`
+`***`<br>
 `***`
 
 indicating that the number of tiles, 6, is composite. If given 5 tiles, not being able
