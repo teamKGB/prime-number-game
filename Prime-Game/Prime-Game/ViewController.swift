@@ -14,6 +14,9 @@ class ViewController: UIViewController {
         self.performSegueWithIdentifier("goToHowToPlayPageSegue", sender: self)
     }
     
+    @IBAction func goBacktoHomePageFromHowTo(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
