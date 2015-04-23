@@ -19,14 +19,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mockups" translatesAutoresizingMaskIntoConstraints="NO" id="ac0-2q-kFX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-es-OLC">
-                                <rect key="frame" x="164" y="421" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3e-VT-WTt">
+                                <rect key="frame" x="112" y="501" width="151" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="How to play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goTohowToPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N47-JL-3YW"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3e-VT-WTt">
-                                <rect key="frame" x="164" y="504" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-es-OLC">
+                                <rect key="frame" x="112" y="412" width="150" height="49"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.95748957769999998" green="1" blue="0.99835040770000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -34,20 +41,54 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ac0-2q-kFX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="k7w-D1-LLX"/>
-                            <constraint firstItem="ac0-2q-kFX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nIX-RJ-4tB"/>
-                            <constraint firstAttribute="trailing" secondItem="ac0-2q-kFX" secondAttribute="trailing" id="tD5-u2-URv"/>
-                            <constraint firstItem="ac0-2q-kFX" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="xhY-wx-zZ9"/>
+                            <constraint firstItem="ac0-2q-kFX" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="N6r-UW-I6J"/>
+                            <constraint firstItem="ac0-2q-kFX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nIv-Ud-PEK"/>
+                            <constraint firstAttribute="trailing" secondItem="ac0-2q-kFX" secondAttribute="trailing" id="rci-G4-VIB"/>
+                            <constraint firstItem="ac0-2q-kFX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vhv-Ag-FwG"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="Ml4-PO-FRu" kind="show" identifier="goToHowToPlayPageSegue" id="8CK-on-rDF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="382.5" y="357.5"/>
+        </scene>
+        <!--HowToPlayPage-->
+        <scene sceneID="E26-8t-8J3">
+            <objects>
+                <viewController title="HowToPlayPage" id="Ml4-PO-FRu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Rf-rC-mkl"/>
+                        <viewControllerLayoutGuide type="bottom" id="sL2-J6-xb7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RN3-mo-ufA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="9he-yV-9Cq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9he-yV-9Cq" secondAttribute="trailing" id="83o-Ic-6m9"/>
+                            <constraint firstItem="9he-yV-9Cq" firstAttribute="bottom" secondItem="sL2-J6-xb7" secondAttribute="top" id="CDX-IT-2mx"/>
+                            <constraint firstItem="9he-yV-9Cq" firstAttribute="top" secondItem="RN3-mo-ufA" secondAttribute="top" id="O5a-mb-azv"/>
+                            <constraint firstItem="9he-yV-9Cq" firstAttribute="leading" secondItem="RN3-mo-ufA" secondAttribute="leading" id="WwF-1y-jQm"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUO-QV-aYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="358"/>
+            <point key="canvasLocation" x="924" y="358"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="637" height="1136"/>
         <image name="mockups" width="1333" height="2366"/>
     </resources>
 </document>
