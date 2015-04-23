@@ -13,6 +13,7 @@
 		BF8562EC1AE9599200E67F56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8562EB1AE9599200E67F56 /* Images.xcassets */; };
 		BF8562EF1AE9599200E67F56 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8562ED1AE9599200E67F56 /* LaunchScreen.xib */; };
 		BF8562FB1AE9599200E67F56 /* Prime_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8562FA1AE9599200E67F56 /* Prime_GameTests.swift */; };
+		BF8563051AE983B000E67F56 /* GameWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8563041AE983B000E67F56 /* GameWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		BF8562F41AE9599200E67F56 /* Prime-GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Prime-GameTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8562F91AE9599200E67F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8562FA1AE9599200E67F56 /* Prime_GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prime_GameTests.swift; sourceTree = "<group>"; };
+		BF8563041AE983B000E67F56 /* GameWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				BF8562EB1AE9599200E67F56 /* Images.xcassets */,
 				BF8562ED1AE9599200E67F56 /* LaunchScreen.xib */,
 				BF8562E21AE9599200E67F56 /* Supporting Files */,
+				BF8563041AE983B000E67F56 /* GameWindow.swift */,
 			);
 			path = "Prime-Game";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8563051AE983B000E67F56 /* GameWindow.swift in Sources */,
 				BF8562E71AE9599200E67F56 /* ViewController.swift in Sources */,
 				BF8562E51AE9599200E67F56 /* AppDelegate.swift in Sources */,
 			);

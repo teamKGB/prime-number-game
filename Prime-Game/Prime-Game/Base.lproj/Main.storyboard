@@ -38,6 +38,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Gi8-BX-h9g" kind="show" id="TkB-GG-EFO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -56,6 +59,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="382.5" y="357.5"/>
+        </scene>
+        <!--Game Window-->
+        <scene sceneID="zhe-YN-YdN">
+            <objects>
+                <viewController id="Gi8-BX-h9g" customClass="GameWindow" customModule="Prime_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ULu-pu-O2n"/>
+                        <viewControllerLayoutGuide type="bottom" id="SJH-kM-XQ1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KTz-Pm-gUi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem width="115" style="plain" systemItem="fixedSpace" id="9vD-fA-xud"/>
+                        <barButtonItem title="Item" width="113" id="DNI-JU-wEo">
+                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem width="122" style="plain" systemItem="fixedSpace" id="2dr-Yz-1O0"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJ0-Hz-pan" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040.5" y="-408.5"/>
         </scene>
         <!--HowToPlayPage-->
         <scene sceneID="E26-8t-8J3">
