@@ -36,7 +36,7 @@ class GameWindow: UIViewController {
         
         changeStyle() 
         //makeBlock(5)
-        var newView = block(frame: CGRectMake(5, 7, 60, 60))
+        var newView = block(frame: CGRectMake(5, 7, 40, 40))
         gameWindowView.addSubview(newView)
         
     }

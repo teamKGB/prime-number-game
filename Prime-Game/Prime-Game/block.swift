@@ -43,25 +43,31 @@ class block: UIView{
         self.center = CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y)
         
         // define grid size
-        var step = 60.0
+        var size = 40.0
+        
         
         // snap to grid
-        self.center = CGPointMake(CGFloat(step) * CGFloat(floor(self.center.x/CGFloat(step))), CGFloat(step) * CGFloat(floor(self.center.y/CGFloat(step))))
+        self.center = CGPointMake(CGFloat(size) * CGFloat(floor(self.center.x/CGFloat(size))), CGFloat(size) * CGFloat(floor(self.center.y/CGFloat(size))))
+        self.center.x += 27.5
+        self.center.y += 39.5
         
-        if (self.center.x-30 < 0) {
-            self.center.x = 30
+        println("this is x:  \(self.center.x)")
+        println("this is y: \(self.center.y)")
+        
+        if (self.center.x - 27.5 < 0) {
+            self.center.x = 27.5
         }
         
-        if (self.center.x+30 > self.superview?.frame.size.width) {
-            self.center.x = self.superview!.frame.size.width
+        if (self.center.x + 27.5 > self.superview?.frame.size.width) {
+            self.center.x = self.superview!.frame.size.width - 27.5
         }
         
-        if (self.center.y-30 < 60) {
-            self.center.y = 90
+        if (self.center.y - 20 < 19.5) {
+            self.center.y = 19.5 + 20
         }
         
-        if (self.center.y+30 > self.superview!.frame.size.height-80) {
-            self.center.y = self.superview!.frame.size.height-100
+        if (self.center.y + 20 > self.superview!.frame.size.height - 39.5) {
+            self.center.y = self.superview!.frame.size.height - 39.5
         }
 
     }
