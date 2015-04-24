@@ -10,9 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBAction func goTohowToPlayButton(sender: UIButton) {
-        self.performSegueWithIdentifier("goToHowToPlayPageSegue", sender: self)
-    }
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var howToPlayButton: UIButton!
     
     @IBAction func goBacktoHomePageFromHowTo(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -22,6 +21,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //set the two buttons to be curved
+        //makeButtonsCurve()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +32,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func makeButtonsCurve() {
+        startButton.layer.cornerRadius = 5
+        howToPlayButton.layer.cornerRadius = 5
+    }
 
 
 }
