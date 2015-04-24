@@ -72,37 +72,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-Dq-zF0">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-Dq-zF0">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.9683216831" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="Title" id="Xh0-pP-KNA"/>
+                                    <navigationItem id="Xh0-pP-KNA"/>
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ra-Jq-mFs">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <barButtonItem title="Item" id="Tz8-fJ-tVK"/>
-                                </items>
+                                <items/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Bj-rZ-q6G">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Bj-rZ-q6G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="0.9683216831" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjN-x7-j5Z">
+                                <rect key="frame" x="16" y="20" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="BMq-gp-Up5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-3Q-3DD">
+                                <rect key="frame" x="16" y="39" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awP-04-n5B">
+                                <rect key="frame" x="294" y="31" width="65" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="wNS-AD-u9h"/>
+                                    <constraint firstAttribute="height" constant="21" id="z4r-U1-Mqo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YjN-x7-j5Z" firstAttribute="leading" secondItem="Nji-3Q-3DD" secondAttribute="leading" id="6wl-kN-yoj"/>
+                            <constraint firstItem="YjN-x7-j5Z" firstAttribute="trailing" secondItem="Nji-3Q-3DD" secondAttribute="trailing" id="JVR-HQ-iV2"/>
+                            <constraint firstItem="Nji-3Q-3DD" firstAttribute="top" secondItem="eoJ-RL-EQx" secondAttribute="bottom" constant="19" id="NIF-74-R1t"/>
+                            <constraint firstItem="YjN-x7-j5Z" firstAttribute="leading" secondItem="ErD-jy-L5i" secondAttribute="leadingMargin" id="Wke-B1-Hj0"/>
+                            <constraint firstItem="awP-04-n5B" firstAttribute="trailing" secondItem="ErD-jy-L5i" secondAttribute="trailingMargin" id="Yx5-qz-t4e"/>
+                            <constraint firstItem="awP-04-n5B" firstAttribute="top" secondItem="eoJ-RL-EQx" secondAttribute="bottom" constant="11" id="gmT-Fl-0Bc"/>
+                            <constraint firstItem="5Bj-rZ-q6G" firstAttribute="top" secondItem="Nji-3Q-3DD" secondAttribute="bottom" constant="4" id="kzA-rC-bhl"/>
+                            <constraint firstItem="5Bj-rZ-q6G" firstAttribute="top" secondItem="YjN-x7-j5Z" secondAttribute="bottom" constant="23" id="nky-Ac-Owl"/>
+                            <constraint firstItem="YjN-x7-j5Z" firstAttribute="top" secondItem="Teg-Dq-zF0" secondAttribute="top" id="x2E-Ww-wth"/>
+                            <constraint firstItem="YjN-x7-j5Z" firstAttribute="top" secondItem="eoJ-RL-EQx" secondAttribute="bottom" id="yYY-l6-8eS"/>
+                            <constraint firstItem="5Bj-rZ-q6G" firstAttribute="top" secondItem="awP-04-n5B" secondAttribute="bottom" constant="12" id="yku-3Q-CR3"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="levelLable" destination="Nji-3Q-3DD" id="8s4-Tb-Rv0"/>
+                        <outlet property="timeLeftLable" destination="awP-04-n5B" id="ejb-vk-fWb"/>
                         <outlet property="titleBar" destination="Teg-Dq-zF0" id="lR0-0J-YRa"/>
                         <outlet property="toolBar" destination="1Ra-Jq-mFs" id="5aR-rj-Vnf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzD-eS-POu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863.5" y="-252.5"/>
+            <point key="canvasLocation" x="923.5" y="-440.5"/>
         </scene>
         <!--HowToPlayPage-->
         <scene sceneID="E26-8t-8J3">

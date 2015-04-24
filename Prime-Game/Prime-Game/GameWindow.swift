@@ -14,6 +14,9 @@ class GameWindow: UIViewController {
     @IBOutlet weak var titleBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    @IBOutlet weak var levelLable: UILabel!
+    @IBOutlet weak var timeLeftLable: UILabel!
+    
     
     var timeLeft: Int = 0
     
@@ -22,7 +25,7 @@ class GameWindow: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         changeStyle() 
-        addBlock()
+        //addBlock()
     }
     
     override func didReceiveMemoryWarning() {
