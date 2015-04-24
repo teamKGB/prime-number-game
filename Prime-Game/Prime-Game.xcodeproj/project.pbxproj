@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF6A16311AEAE2E00009BA20 /* block.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A16301AEAE2E00009BA20 /* block.swift */; };
 		BF8562E51AE9599200E67F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8562E41AE9599200E67F56 /* AppDelegate.swift */; };
 		BF8562E71AE9599200E67F56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8562E61AE9599200E67F56 /* ViewController.swift */; };
 		BF8562EA1AE9599200E67F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8562E81AE9599200E67F56 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF6A16301AEAE2E00009BA20 /* block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = block.swift; sourceTree = "<group>"; };
 		BF8562DF1AE9599200E67F56 /* Prime-Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prime-Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8562E31AE9599200E67F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8562E41AE9599200E67F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				BF8562ED1AE9599200E67F56 /* LaunchScreen.xib */,
 				BF8562E21AE9599200E67F56 /* Supporting Files */,
 				BF8563041AE983B000E67F56 /* GameWindow.swift */,
+				BF6A16301AEAE2E00009BA20 /* block.swift */,
 			);
 			path = "Prime-Game";
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF8563051AE983B000E67F56 /* GameWindow.swift in Sources */,
+				BF6A16311AEAE2E00009BA20 /* block.swift in Sources */,
 				BF8562E71AE9599200E67F56 /* ViewController.swift in Sources */,
 				BF8562E51AE9599200E67F56 /* AppDelegate.swift in Sources */,
 			);
@@ -415,6 +419,7 @@
 				BF8563001AE9599200E67F56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF8563011AE9599200E67F56 /* Build configuration list for PBXNativeTarget "Prime-GameTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				BF8563031AE9599200E67F56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

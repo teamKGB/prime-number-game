@@ -16,9 +16,14 @@ class GameWindow: UIViewController {
     @IBOutlet weak var levelLable: UILabel!
     @IBOutlet weak var timeLeftLable: UILabel!
     
+    @IBOutlet weak var gameWindowView: UIView!
+    
     
     var timeLeft: Int!
     var gameLevel: Int!
+    
+    private var xOffset: CGFloat = 0.0
+    private var yOffset: CGFloat = 0.0
     
     // This array keeps track of all obstacle views
     var obstacleViews : [UIView] = []
@@ -30,9 +35,10 @@ class GameWindow: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         changeStyle() 
-        makeBlock()
+        //makeBlock(5)
+        var newView = block(frame: CGRectMake(5, 7, 60, 60))
+        gameWindowView.addSubview(newView)
         
-        obstacleViews.first?.center = CGPointMake(100, 100)
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,21 +47,7 @@ class GameWindow: UIViewController {
     }
     
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        var touch : UITouch = touches.first as! UITouch
-        
-        location = touch.locationInView(self.view)
-        
-        obstacleViews.first?.center = location
-    }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        var touch : UITouch = touches.first as! UITouch
-        
-        location = touch.locationInView(self.view)
-        
-        obstacleViews.first?.center = location
-    }
     
     func changeStyle() {
     
@@ -64,35 +56,17 @@ class GameWindow: UIViewController {
         toolBar.barTintColor = UIColor.whiteColor()
     }
     
-    func makeBlock() {
-        var block = UIView(frame: CGRectMake(20, 20, 40, 40))
-        block.backgroundColor = UIColor.redColor()
-        self.view.addSubview(block)
+    func isPrimNum (number: Int) -> Bool {
         
-        //add the block to array
-        obstacleViews.append(block)
-    }
-    
-    func makeGrid(){
-        
-    }
-    
-    func testTouches(touches: NSSet!) {
-        // Get the first touch and its location in this view controller's view coordinate system
-        let touch = touches.allObjects[0] as! UITouch
-        let touchLocation = touch.locationInView(self.view)
-        
-        for obstacleView in obstacleViews {
-            // Convert the location of the obstacle view to this view controller's view coordinate system
-            let obstacleViewFrame = self.view.convertRect(obstacleView.frame, fromView: obstacleView.superview)
+        for(var i = 2; i < number - 1; i++) {
             
-            // Check if the touch is inside the obstacle view
-            if CGRectContainsPoint(obstacleViewFrame, touchLocation) {
-                println("Game over!")
+            if(number % i == 0) {
+            
+                return false
             }
         }
+        
+        return true
     }
-    
-    
     
 }

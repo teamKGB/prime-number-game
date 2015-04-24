@@ -151,6 +151,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameWindowView" destination="5Bj-rZ-q6G" id="bP9-ON-Rcd"/>
                         <outlet property="levelLable" destination="Nji-3Q-3DD" id="8s4-Tb-Rv0"/>
                         <outlet property="timeLeftLable" destination="awP-04-n5B" id="ejb-vk-fWb"/>
                         <outlet property="titleBar" destination="Teg-Dq-zF0" id="lR0-0J-YRa"/>
