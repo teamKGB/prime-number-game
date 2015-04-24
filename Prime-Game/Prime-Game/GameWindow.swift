@@ -13,12 +13,12 @@ class GameWindow: UIViewController {
 
     @IBOutlet weak var titleBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
-    
     @IBOutlet weak var levelLable: UILabel!
     @IBOutlet weak var timeLeftLable: UILabel!
     
     
-    var timeLeft: Int = 0
+    var timeLeft: Int!
+    var gameLevel: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +34,9 @@ class GameWindow: UIViewController {
     }
     
     func changeStyle() {
-        //change the title bar color to white
+    
+        //change the title bar and tool bar color to white
         titleBar.barTintColor = UIColor.whiteColor()
-        
-        //change the tool bar color to white
         toolBar.barTintColor = UIColor.whiteColor()
     }
     
@@ -45,6 +44,10 @@ class GameWindow: UIViewController {
         var block = UIView(frame: CGRectMake(20, 20, 40, 40))
         block.backgroundColor = UIColor.redColor()
         self.view.addSubview(block)
+    }
+    
+    func makeGrid(){
+        
     }
     
 }
