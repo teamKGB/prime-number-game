@@ -21,7 +21,8 @@ class GameWindow: UIViewController {
     
     var timeLeft: Int = 0
     var gameLevel: Int = 0
-    var blockNumbers: Int = 0;
+    var blockNumbers: Int = 0
+    var blocks: [block] = []
     
     private var xOffset: CGFloat = 0.0
     private var yOffset: CGFloat = 0.0
@@ -46,7 +47,6 @@ class GameWindow: UIViewController {
         
         //check how many block to produce in one level
         if(gameLevel < 3){
-            
             timeLeft = 40
             while (blockNumbers < 5){
                 blockNumbers = Int(arc4random_uniform(30)) + 1
@@ -66,18 +66,26 @@ class GameWindow: UIViewController {
         }
         
         //make blocks
+        var isDifferent = false
+        var isFirst = true
+        var check = false
+        var newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
         
         for(var i = 0; i < blockNumbers; i++){
+            isDifferent = false
+            check = false
+            
+            while isDifferent == false {
+                
             xOffset = randomBetweenNumbers(1, secondNum: gameWindowView.frame.size.width)
             yOffset = randomBetweenNumbers(1, secondNum: gameWindowView.frame.size.height)
-            var newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
+            newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
             
-            println("this is new x:  \(newBlockView.center.x)")
-            println("this is new y: \(newBlockView.center.y)")
+            //println("this is new x:  \(newBlockView.center.x)")
+            //println("this is new y: \(newBlockView.center.y)")
             
             // set grid size
             var size = 40.0
-            //n.frame = CGRectMake(pointX, pointY, 60, 60)
             
             // snap to the grid
             newBlockView.center = CGPointMake(CGFloat(size) * CGFloat(floor(newBlockView.center.x/CGFloat(size))), CGFloat(size) * CGFloat(floor(newBlockView.center.y/CGFloat(size))))
@@ -101,10 +109,39 @@ class GameWindow: UIViewController {
                 newBlockView.center.y = gameWindowView.frame.size.height - 39.5
             }
             
+                //Make sure the blocks will not be on top of each other blocks
+                if isFirst != true { //check if the firs block has been created
+                    
+                    for b in blocks {
+                        if b.center.x == newBlockView.center.x && b.center.y == newBlockView.center.y {
+                            //repeat the loop
+                            println("why?")
+                            check = true
+                            break
+                        }
+                        else {
+                            check = false
+                        }
+                    }
+                    
+                    if(check == false){
+                        isDifferent = true
+                    }
+                    
+                    
+                }
+                else {
+                    isDifferent = true
+                }
+                
+            }
+            
+            blocks.append(newBlockView)
             gameWindowView.addSubview(newBlockView)
+            isFirst = false
         }
         
-        
+        println(blocks.count)
         
     }
     
