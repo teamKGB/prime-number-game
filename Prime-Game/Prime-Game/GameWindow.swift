@@ -83,12 +83,13 @@ class GameWindow: UIViewController {
             // set grid size
             var size = 40.0
             
-            // snap to the grid
+            // make sure the block will be place on the grid
             newBlockView.center = CGPointMake(CGFloat(size) * CGFloat(floor(newBlockView.center.x/CGFloat(size))), CGFloat(size) * CGFloat(floor(newBlockView.center.y/CGFloat(size))))
             
             newBlockView.center.x += 27.5
             newBlockView.center.y += 39.5
             
+                //Make sure the block will not be able to move out of the gameWindowView
             if (newBlockView.center.x - 27.5 < 0) {
                 newBlockView.center.x = 27.5
             }
@@ -136,9 +137,9 @@ class GameWindow: UIViewController {
             isFirst = false
         }
         
+        //debug
+        println("Total blocks: ")
         println(blocks.count)
-        
-        
         
     }
     
@@ -152,6 +153,7 @@ class GameWindow: UIViewController {
         }
         else {
             //game over
+            println("Game Over")
             gameOver()
         }
     }
@@ -163,15 +165,26 @@ class GameWindow: UIViewController {
     
     func nextLevel() {
         
-        
         //reset all vars for currect level
         for view in gameWindowView.subviews {
             view.removeFromSuperview()
         }
         
+        blocks.removeAll(keepCapacity: false)
+        blockNumbers = 0
+        
         //start a new level
         gameStart()
     }
+    
+    
+    
+    /*
+    *
+    *       Helper functions
+    *
+    *
+    */
     
     func incrementScore() {
         gameScore += 100
@@ -189,35 +202,22 @@ class GameWindow: UIViewController {
         destinationVC.gameScore = newGameScoreVar
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    //Helper functions
-    
     func changeStyle() {
     
         //change the title bar and tool bar color to white
         self.titleBar!.barTintColor = UIColor.whiteColor()
+        
         //set the is prime button action
         self.isPrimeButton!.addTarget(self, action: "primeButton", forControlEvents: UIControlEvents.TouchUpInside)
        
     }
     
     func isPrimNum (number: Int) -> Bool {
-        
         for(var i = 2; i < number - 1; i++) {
-            
             if(number % i == 0) {
-            
                 return false
             }
         }
-        
         return true
     }
     
