@@ -100,6 +100,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="DBK-Lc-7hd"/>
                                     <barButtonItem title="It's Prime" width="100" id="J1Z-lK-IJr">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="primeButton:" destination="ROA-hu-CcJ" id="5gS-Sr-fBn"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XBd-Te-GjV"/>
                                 </items>

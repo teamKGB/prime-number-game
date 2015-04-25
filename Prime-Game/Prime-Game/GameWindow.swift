@@ -23,6 +23,7 @@ class GameWindow: UIViewController {
     var gameLevel: Int = 0
     var blockNumbers: Int = 0
     var blocks: [block] = []
+    var isPrime = false
     
     private var xOffset: CGFloat = 0.0
     private var yOffset: CGFloat = 0.0
@@ -49,7 +50,7 @@ class GameWindow: UIViewController {
         if(gameLevel < 3){
             timeLeft = 40
             while (blockNumbers < 5){
-                blockNumbers = Int(arc4random_uniform(30)) + 1
+                blockNumbers = Int(arc4random_uniform(10)) + 1
             }
         }
         else if (gameLevel < 8) {
@@ -115,7 +116,6 @@ class GameWindow: UIViewController {
                     for b in blocks {
                         if b.center.x == newBlockView.center.x && b.center.y == newBlockView.center.y {
                             //repeat the loop
-                            println("why?")
                             check = true
                             break
                         }
@@ -143,6 +143,20 @@ class GameWindow: UIViewController {
         
         println(blocks.count)
         
+        
+        
+    }
+    
+    //do something when the user clicks the "It's Prime" button
+    @IBAction func primeButton(sender: UIBarButtonItem) {
+        if isPrimNum(blockNumbers) {
+            //go to next level
+            
+        }
+        else {
+            //game over
+            gameOver()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -150,6 +164,22 @@ class GameWindow: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func gameOver() {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //Helper functions
     func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
