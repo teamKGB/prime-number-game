@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -197,6 +197,11 @@
                                     <color key="titleColor" white="0.9683216831" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="Yp6-am-QT7"/>
                                 </connections>
@@ -259,41 +264,56 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="9he-yV-9Cq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-ES-N03">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-ES-N03">
                                 <rect key="frame" x="32" y="360" width="313" height="88"/>
-                                <string key="text">Bacon ipsum dolor amet doner sausage bacon short loin pork loin spare ribs venison ham pork tenderloin short ribs.</string>
+                                <string key="text">Bacon ipsum dolor amet doner sausage bacon short loin pork loin spare ribs venison ham pork tenderloin short ribs.
+</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How to play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhJ-VA-CuG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhJ-VA-CuG">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="FgP-Lm-uKt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYm-gO-Lab">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYm-gO-Lab">
                                 <rect key="frame" x="32" y="92" width="313" height="88"/>
-                                <string key="text">Bacon ipsum dolor amet doner sausage bacon short loin pork loin spare ribs venison ham pork tenderloin short ribs.</string>
+                                <string key="text">Bacon ipsum dolor amet doner sausage bacon short loin pork loin spare ribs venison ham pork tenderloin short ribs.
+</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bresaola strip steak pork chop ham tenderloin filet mignon meatloaf chicken turducken ground round tail cow." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9V-qX-6rT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bresaola strip steak pork chop ham tenderloin filet mignon meatloaf chicken turducken ground round tail cow." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9V-qX-6rT">
                                 <rect key="frame" x="32" y="160" width="313" height="75"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconmonstr-diamond-9-icon-256" translatesAutoresizingMaskIntoConstraints="NO" id="7XW-FZ-mxg">
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconmonstr-diamond-9-icon-256" translatesAutoresizingMaskIntoConstraints="NO" id="7XW-FZ-mxg">
                                 <rect key="frame" x="136" y="243" width="103" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="1Hc-c3-W3y"/>
+                                    <constraint firstAttribute="width" constant="103" id="HqN-N1-MiE"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconmonstr-crown-2-icon-256" translatesAutoresizingMaskIntoConstraints="NO" id="2hf-Hb-Cqx">
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconmonstr-crown-2-icon-256" translatesAutoresizingMaskIntoConstraints="NO" id="2hf-Hb-Cqx">
                                 <rect key="frame" x="107" y="441" width="161" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="0MM-Jq-BCd"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyJ-At-twm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyJ-At-twm">
                                 <rect key="frame" x="112" y="575" width="150" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mD1-Os-4A1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <color key="tintColor" red="0.95748957769999998" green="1" blue="0.99835040770000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Got it">
@@ -311,14 +331,31 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kbJ-ES-N03" firstAttribute="trailing" secondItem="h9V-qX-6rT" secondAttribute="trailing" id="0cs-He-DaU"/>
+                            <constraint firstItem="xYm-gO-Lab" firstAttribute="leading" secondItem="RN3-mo-ufA" secondAttribute="leadingMargin" constant="16" id="7Pd-4P-j5M"/>
+                            <constraint firstItem="7XW-FZ-mxg" firstAttribute="top" secondItem="RN3-mo-ufA" secondAttribute="top" constant="243" id="825-mp-ruX"/>
                             <constraint firstAttribute="trailing" secondItem="9he-yV-9Cq" secondAttribute="trailing" id="83o-Ic-6m9"/>
                             <constraint firstItem="9he-yV-9Cq" firstAttribute="bottom" secondItem="sL2-J6-xb7" secondAttribute="top" id="CDX-IT-2mx"/>
+                            <constraint firstItem="kbJ-ES-N03" firstAttribute="leading" secondItem="h9V-qX-6rT" secondAttribute="leading" id="F5j-YR-dbW"/>
+                            <constraint firstItem="7XW-FZ-mxg" firstAttribute="top" secondItem="h9V-qX-6rT" secondAttribute="bottom" constant="8" symbolic="YES" id="Fu2-pY-QL5"/>
                             <constraint firstItem="9he-yV-9Cq" firstAttribute="top" secondItem="RN3-mo-ufA" secondAttribute="top" id="O5a-mb-azv"/>
-                            <constraint firstItem="sL2-J6-xb7" firstAttribute="top" secondItem="wyJ-At-twm" secondAttribute="bottom" constant="103" id="Pl4-l5-ruz"/>
+                            <constraint firstItem="sL2-J6-xb7" firstAttribute="top" secondItem="wyJ-At-twm" secondAttribute="bottom" constant="42" id="SpT-n6-2h2"/>
+                            <constraint firstItem="xYm-gO-Lab" firstAttribute="top" secondItem="XhJ-VA-CuG" secondAttribute="bottom" constant="21" id="VEg-nG-5bO"/>
+                            <constraint firstItem="xYm-gO-Lab" firstAttribute="trailing" secondItem="h9V-qX-6rT" secondAttribute="trailing" id="Vdf-IV-D8q"/>
+                            <constraint firstItem="kbJ-ES-N03" firstAttribute="top" secondItem="7XW-FZ-mxg" secondAttribute="bottom" constant="23" id="WQS-qm-NmQ"/>
+                            <constraint firstItem="XhJ-VA-CuG" firstAttribute="leading" secondItem="9he-yV-9Cq" secondAttribute="leading" id="WoZ-Od-RFV"/>
                             <constraint firstItem="9he-yV-9Cq" firstAttribute="leading" secondItem="RN3-mo-ufA" secondAttribute="leading" id="WwF-1y-jQm"/>
-                            <constraint firstItem="wyJ-At-twm" firstAttribute="leading" secondItem="RN3-mo-ufA" secondAttribute="leadingMargin" constant="96" id="eTR-EO-V8h"/>
-                            <constraint firstItem="wyJ-At-twm" firstAttribute="centerX" secondItem="9he-yV-9Cq" secondAttribute="centerX" id="kFD-SK-mpa"/>
-                            <constraint firstItem="wyJ-At-twm" firstAttribute="top" secondItem="9Rf-rC-mkl" secondAttribute="bottom" constant="494" id="qtA-WO-dq6"/>
+                            <constraint firstItem="XhJ-VA-CuG" firstAttribute="trailing" secondItem="9he-yV-9Cq" secondAttribute="trailing" id="XoC-LT-wSm"/>
+                            <constraint firstItem="7XW-FZ-mxg" firstAttribute="centerX" secondItem="2hf-Hb-Cqx" secondAttribute="centerX" id="Z5b-Vs-8Sq"/>
+                            <constraint firstItem="h9V-qX-6rT" firstAttribute="top" secondItem="XhJ-VA-CuG" secondAttribute="bottom" constant="89" id="ZKM-IL-4zc"/>
+                            <constraint firstItem="XhJ-VA-CuG" firstAttribute="top" secondItem="9Rf-rC-mkl" secondAttribute="bottom" constant="8" symbolic="YES" id="eKR-wQ-uh1"/>
+                            <constraint firstItem="wyJ-At-twm" firstAttribute="leading" secondItem="RN3-mo-ufA" secondAttribute="leadingMargin" constant="96" id="f8o-9W-TY8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xYm-gO-Lab" secondAttribute="trailing" constant="14" id="h8W-FS-BtO"/>
+                            <constraint firstItem="xYm-gO-Lab" firstAttribute="leading" secondItem="h9V-qX-6rT" secondAttribute="leading" id="hL8-0o-5CU"/>
+                            <constraint firstItem="wyJ-At-twm" firstAttribute="top" secondItem="2hf-Hb-Cqx" secondAttribute="bottom" constant="49" id="lMb-za-QbX"/>
+                            <constraint firstItem="XhJ-VA-CuG" firstAttribute="centerX" secondItem="2hf-Hb-Cqx" secondAttribute="centerX" id="qZy-Ml-UoQ"/>
+                            <constraint firstItem="wyJ-At-twm" firstAttribute="centerX" secondItem="2hf-Hb-Cqx" secondAttribute="centerX" id="uCq-1B-m9t"/>
+                            <constraint firstItem="2hf-Hb-Cqx" firstAttribute="leading" secondItem="RN3-mo-ufA" secondAttribute="leadingMargin" constant="91" id="uEq-Ze-SIw"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
