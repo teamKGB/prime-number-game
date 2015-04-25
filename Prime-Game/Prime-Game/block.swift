@@ -46,14 +46,16 @@ class block: UIView{
         var size = 40.0
         
         
-        // snap to grid
+        // make sure the block will be place on the grid
         self.center = CGPointMake(CGFloat(size) * CGFloat(floor(self.center.x/CGFloat(size))), CGFloat(size) * CGFloat(floor(self.center.y/CGFloat(size))))
         self.center.x += 27.5
         self.center.y += 39.5
         
-        println("this is x:  \(self.center.x)")
-        println("this is y: \(self.center.y)")
+        //debug
+        //println("this is x:  \(self.center.x)")
+        //println("this is y: \(self.center.y)")
         
+        //Make sure the block will not be able to move out of the gameWindowView
         if (self.center.x - 27.5 < 0) {
             self.center.x = 27.5
         }
@@ -75,16 +77,12 @@ class block: UIView{
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         // highlight the touched view
         self.superview?.bringSubviewToFront(self)
-        
-        // get starting location
         lastLocation = self.center
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         // highlight the touched view
         self.superview?.bringSubviewToFront(self)
-        
-        // get starting location
         lastLocation = self.center
         
     }

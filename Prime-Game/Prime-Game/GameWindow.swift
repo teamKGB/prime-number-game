@@ -41,7 +41,7 @@ class GameWindow: UIViewController {
         
         //check how many block to produce in one level
         if(gameLevel <= 3) {
-            timeLeft = 40
+            timeLeft = 20
             while (blockNumbers < 5) {
                 blockNumbers = Int(arc4random_uniform(10)) + 1
             }
@@ -50,14 +50,16 @@ class GameWindow: UIViewController {
             while (blockNumbers < 10) {
                 blockNumbers = Int(arc4random_uniform(20)) + 1
             }
-            timeLeft = 30
+            timeLeft = 15
         }
         else {
             while (blockNumbers <= 13) {
                 blockNumbers = Int(arc4random_uniform(30)) + 1
             }
-            timeLeft = 20
+            timeLeft = 10
         }
+        
+        timer()
         
         //make blocks
         var isDifferent = false
@@ -210,6 +212,28 @@ class GameWindow: UIViewController {
         //set the is prime button action
         self.isPrimeButton!.addTarget(self, action: "primeButton", forControlEvents: UIControlEvents.TouchUpInside)
        
+    }
+    
+    func timer() {
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateTimeLabel"), userInfo: nil, repeats: true)
+
+    }
+    
+    func updateTimeLabel() {
+        timeLeft -= 1
+        if (timeLeft < 10) {
+            timeLeftLable?.text = "00:0\(String(timeLeft))"
+        }
+        else {
+            timeLeftLable?.text = "00:\(String(timeLeft))"
+        }
+        if(timeLeft < 6) {
+            timeLeftLable?.textColor = UIColor.redColor()
+        }
+        
+        if(timeLeft == 0) {
+            gameOver()
+        }
     }
     
     func isPrimNum (number: Int) -> Bool {
