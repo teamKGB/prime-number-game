@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var howToPlayButton: UIButton!
     
+    var gameScore = 0
+    
+    @IBOutlet weak var gameScoreLabel: UILabel?
+    
     @IBAction func goBacktoHomePageFromHowTo(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -20,7 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view, typically from a nib.
+        //print out game over score
+        self.gameScoreLabel?.text = String(gameScore)
      
         
     }

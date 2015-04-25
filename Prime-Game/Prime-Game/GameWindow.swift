@@ -12,16 +12,16 @@ class GameWindow: UIViewController {
     
 
     @IBOutlet weak var titleBar: UINavigationBar!
-    
     @IBOutlet weak var levelLable: UILabel!
     @IBOutlet weak var timeLeftLable: UILabel!
-    
     @IBOutlet weak var gameWindowView: UIView!
     @IBOutlet weak var isPrimeButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel?
     
     
     var timeLeft: Int = 0
     var gameLevel: Int = 0
+    var gameScore: Int = 0
     var blockNumbers: Int = 0
     var blocks: [block] = []
     var isPrime = false
@@ -32,9 +32,7 @@ class GameWindow: UIViewController {
         super.viewDidLoad()
         
         changeStyle()
-        
         gameStart()
-        
     }
     
     func gameStart() {
@@ -42,46 +40,45 @@ class GameWindow: UIViewController {
         levelLable?.text = String(gameLevel)
         
         //check how many block to produce in one level
-        if(gameLevel < 3){
+        if(gameLevel <= 3) {
             timeLeft = 40
-            while (blockNumbers < 5){
+            while (blockNumbers < 5) {
                 blockNumbers = Int(arc4random_uniform(10)) + 1
             }
-            
         }
-        else if (gameLevel < 8) {
-            while (blockNumbers < 10){
+        else if (gameLevel <= 7) {
+            while (blockNumbers < 10) {
                 blockNumbers = Int(arc4random_uniform(20)) + 1
             }
             timeLeft = 30
         }
         else {
-            while (blockNumbers < 15){
+            while (blockNumbers <= 13) {
                 blockNumbers = Int(arc4random_uniform(30)) + 1
             }
             timeLeft = 20
         }
         
         //make blocks
+        var isDifferent = false
+        var isFirst = true
+        var check = false
+        var xOffset = CGFloat(0.0)
+        var yOffset = CGFloat(0.0)
+        var newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
         
         for(var i = 0; i < blockNumbers; i++){
-            var isDifferent = false
-            var isFirst = true
-            var check = false
-            var xOffset = CGFloat(0.0)
-            var yOffset = CGFloat(0.0)
-            var newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
+            isDifferent = false
+            check = false
             
             while isDifferent == false {
                 
+            //get random x and y locations
             xOffset = CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(1 - gameWindowView.frame.size.width) + min(1, gameWindowView.frame.size.width)
             yOffset = CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(1 - gameWindowView.frame.size.height) + min(1, gameWindowView.frame.size.height)
                 
             
             newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
-            
-            //println("this is new x:  \(newBlockView.center.x)")
-            //println("this is new y: \(newBlockView.center.y)")
             
             // set grid size
             var size = 40.0
@@ -150,6 +147,8 @@ class GameWindow: UIViewController {
         if isPrimNum(blockNumbers) {
             //go to next level
             println("it is prime")
+            incrementScore()
+            nextLevel()
         }
         else {
             //game over
@@ -157,19 +156,38 @@ class GameWindow: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func gameOver() {
+        //go to game over page
        self.performSegueWithIdentifier("goToGameOverPage", sender: self)
     }
     
+    func nextLevel() {
+        
+        
+        //reset all vars for currect level
+        for view in gameWindowView.subviews {
+            view.removeFromSuperview()
+        }
+        
+        //start a new level
+        gameStart()
+    }
+    
+    func incrementScore() {
+        gameScore += 100
+        self.scoreLabel?.text = String(gameScore)
+    }
     
     
-    
-    //buttons handleing
+    //this will send the score to the gameOverView which is controled by ViewController.swift
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Create a variable that you want to send
+        var newGameScoreVar = gameScore
+        
+        // Create a new variable to store the instance of PlayerTableViewController
+        let destinationVC = segue.destinationViewController as! ViewController
+        destinationVC.gameScore = newGameScoreVar
+    }
     
     
     
@@ -201,6 +219,11 @@ class GameWindow: UIViewController {
         }
         
         return true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 }
