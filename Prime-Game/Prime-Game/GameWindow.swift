@@ -12,11 +12,12 @@ class GameWindow: UIViewController {
     
 
     @IBOutlet weak var titleBar: UINavigationBar!
-    @IBOutlet weak var toolBar: UIToolbar!
+    
     @IBOutlet weak var levelLable: UILabel!
     @IBOutlet weak var timeLeftLable: UILabel!
     
     @IBOutlet weak var gameWindowView: UIView!
+    @IBOutlet weak var isPrimeButton: UIButton!
     
     
     var timeLeft: Int = 0
@@ -24,14 +25,8 @@ class GameWindow: UIViewController {
     var blockNumbers: Int = 0
     var blocks: [block] = []
     var isPrime = false
-    
-    private var xOffset: CGFloat = 0.0
-    private var yOffset: CGFloat = 0.0
-    
-    // This array keeps track of all obstacle views
-    var obstacleViews : [UIView] = []
-    
-    var location = CGPoint(x: 50, y: 50)
+
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +39,7 @@ class GameWindow: UIViewController {
     
     func gameStart() {
         gameLevel += 1 //increment level by 1 for each level
-        levelLable.text = String(gameLevel)
+        levelLable?.text = String(gameLevel)
         
         //check how many block to produce in one level
         if(gameLevel < 3){
@@ -52,6 +47,7 @@ class GameWindow: UIViewController {
             while (blockNumbers < 5){
                 blockNumbers = Int(arc4random_uniform(10)) + 1
             }
+            
         }
         else if (gameLevel < 8) {
             while (blockNumbers < 10){
@@ -67,19 +63,21 @@ class GameWindow: UIViewController {
         }
         
         //make blocks
-        var isDifferent = false
-        var isFirst = true
-        var check = false
-        var newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
         
         for(var i = 0; i < blockNumbers; i++){
-            isDifferent = false
-            check = false
+            var isDifferent = false
+            var isFirst = true
+            var check = false
+            var xOffset = CGFloat(0.0)
+            var yOffset = CGFloat(0.0)
+            var newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
             
             while isDifferent == false {
                 
-            xOffset = randomBetweenNumbers(1, secondNum: gameWindowView.frame.size.width)
-            yOffset = randomBetweenNumbers(1, secondNum: gameWindowView.frame.size.height)
+            xOffset = CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(1 - gameWindowView.frame.size.width) + min(1, gameWindowView.frame.size.width)
+            yOffset = CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(1 - gameWindowView.frame.size.height) + min(1, gameWindowView.frame.size.height)
+                
+            
             newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
             
             //println("this is new x:  \(newBlockView.center.x)")
@@ -148,10 +146,10 @@ class GameWindow: UIViewController {
     }
     
     //do something when the user clicks the "It's Prime" button
-    @IBAction func primeButton(sender: UIBarButtonItem) {
+    func primeButton() {
         if isPrimNum(blockNumbers) {
             //go to next level
-            
+            println("it is prime")
         }
         else {
             //game over
@@ -165,11 +163,13 @@ class GameWindow: UIViewController {
     }
     
     func gameOver() {
-        
+       self.performSegueWithIdentifier("goToGameOverPage", sender: self)
     }
     
     
     
+    
+    //buttons handleing
     
     
     
@@ -180,15 +180,14 @@ class GameWindow: UIViewController {
     
     
     //Helper functions
-    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
-        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
-    }
     
     func changeStyle() {
     
         //change the title bar and tool bar color to white
-        titleBar.barTintColor = UIColor.whiteColor()
-        toolBar.barTintColor = UIColor.whiteColor()
+        self.titleBar!.barTintColor = UIColor.whiteColor()
+        //set the is prime button action
+        self.isPrimeButton!.addTarget(self, action: "primeButton", forControlEvents: UIControlEvents.TouchUpInside)
+       
     }
     
     func isPrimNum (number: Int) -> Bool {

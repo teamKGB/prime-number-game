@@ -21,9 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //set the two buttons to be curved
-        //makeButtonsCurve()
+     
         
     }
 
@@ -32,11 +30,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func makeButtonsCurve() {
-        startButton.layer.cornerRadius = 5
-        howToPlayButton.layer.cornerRadius = 5
-    }
-
 
 }
 
