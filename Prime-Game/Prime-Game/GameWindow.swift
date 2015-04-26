@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Foundation
 
-class GameWindow: UIViewController {
+class GameWindow: UIViewController, BlockDelegate {
     
 
     @IBOutlet weak var titleBar: UINavigationBar!
@@ -23,7 +24,7 @@ class GameWindow: UIViewController {
     var gameLevel: Int = 0
     var gameScore: Int = 0
     var blockNumbers: Int = 0
-    var blocks: [block] = []
+    var blocks: [Block] = []
     var isPrime = false
 
  
@@ -33,8 +34,9 @@ class GameWindow: UIViewController {
         
         changeStyle()
         gameStart()
+        
     }
-    
+
     func gameStart() {
         gameLevel += 1 //increment level by 1 for each level
         levelLable?.text = String(gameLevel)
@@ -67,7 +69,7 @@ class GameWindow: UIViewController {
         var check = false
         var xOffset = CGFloat(0.0)
         var yOffset = CGFloat(0.0)
-        var newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
+        var newBlockView = Block(frame: CGRectMake(xOffset, yOffset, 40, 40))
         
         for(var i = 0; i < blockNumbers; i++){
             isDifferent = false
@@ -80,7 +82,7 @@ class GameWindow: UIViewController {
             yOffset = CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(1 - gameWindowView.frame.size.height) + min(1, gameWindowView.frame.size.height)
                 
             
-            newBlockView = block(frame: CGRectMake(xOffset, yOffset, 40, 40))
+            newBlockView = Block(frame: CGRectMake(xOffset, yOffset, 40, 40))
             
             // set grid size
             var size = 40.0
@@ -180,6 +182,23 @@ class GameWindow: UIViewController {
     }
     
     
+    func blockHasMoved(bl: Block){
+        /*for bl in blocks {
+            if b.center.x == bl.center.x && b.center.y == bl.center.y {
+                println("yeah")
+            }
+        }*/
+        
+        println(bl.center.x)
+        
+        println("yeah")
+    }
+    
+    func checkBlocksAreGrouped() {
+        incrementScore()
+    }
+    
+    
     
     /*
     *
@@ -192,6 +211,7 @@ class GameWindow: UIViewController {
         gameScore += 100
         self.scoreLabel?.text = String(gameScore)
     }
+    
     
     
     //this will send the score to the gameOverView which is controled by ViewController.swift
@@ -251,3 +271,4 @@ class GameWindow: UIViewController {
     }
     
 }
+
