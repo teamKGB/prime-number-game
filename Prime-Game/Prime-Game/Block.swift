@@ -11,6 +11,7 @@ import UIKit
 //this protocl will let the GameWindow class to perform action when the delegate is called
 protocol BlockDelegate {
      func blockHasMoved(bl: Block)
+    func blockIsMoving(bl: Block)
 }
 
 class Block: UIView {
@@ -74,6 +75,16 @@ class Block: UIView {
         
         if (self.center.x - 27.5 < 0) {
             self.center.x = 27.5
+        }
+        
+        //check if the user is dragging the view, than send a signal to the GameWindow Class
+        if(sender.state == UIGestureRecognizerState.Changed) {
+            if delegate == nil {
+                println("Delegate is nul")
+            }
+            else {
+                delegate!.blockIsMoving(self)
+            }
         }
 
         //check if the dragging is done, than send a signal to the GameWindow Class

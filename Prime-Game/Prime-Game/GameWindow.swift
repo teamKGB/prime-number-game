@@ -135,7 +135,7 @@ class GameWindow: UIViewController, BlockDelegate {
                 }
                 
             }
-            
+            newBlockView.delegate = self
             blocks.append(newBlockView)
             gameWindowView.addSubview(newBlockView)
             isFirst = false
@@ -181,22 +181,26 @@ class GameWindow: UIViewController, BlockDelegate {
         gameStart()
     }
     
+    //detect collison function
+    func blockIsMoving(bl: Block) {
+        
+        for block in blocks {
+            if(bl != block) {
+                if bl.center.x == block.center.x && bl.center.y == block.center.y {
+                     //println("overLapping")
+                    //do something he to prevent overlapping
+                    
+                }
+            }
+        }
+    }
+    
     
     func blockHasMoved(bl: Block){
-        /*for bl in blocks {
-            if b.center.x == bl.center.x && b.center.y == bl.center.y {
-                println("yeah")
-            }
-        }*/
-        
-        println(bl.center.x)
-        
-        println("yeah")
+        //check if the blocks are grouped
     }
     
-    func checkBlocksAreGrouped() {
-        incrementScore()
-    }
+    
     
     
     
