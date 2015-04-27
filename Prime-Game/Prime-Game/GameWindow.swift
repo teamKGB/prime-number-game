@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 class GameWindow: UIViewController, BlockDelegate {
     
@@ -26,6 +25,7 @@ class GameWindow: UIViewController, BlockDelegate {
     var blockNumbers: Int = 0
     var blocks: [Block] = []
     var isPrime = false
+    var time :NSTimer?
 
  
     
@@ -61,7 +61,7 @@ class GameWindow: UIViewController, BlockDelegate {
             timeLeft = 15
         }
         
-        timer()
+        timer() //set the timer
         
         //make blocks
         var isDifferent = false
@@ -177,6 +177,7 @@ class GameWindow: UIViewController, BlockDelegate {
         blocks.removeAll(keepCapacity: false)
         blockNumbers = 0
         
+        time?.invalidate() // cancel timer
         //start a new level
         gameStart()
     }
@@ -199,7 +200,8 @@ class GameWindow: UIViewController, BlockDelegate {
         var h = 0
         var v = 0
         var won = true
-    
+        
+        //compare each block to other blocks in blocks array
         for blockOne in blocks {
             
             h = 0
@@ -208,9 +210,11 @@ class GameWindow: UIViewController, BlockDelegate {
             for blockTwo in blocks {
              
                 if (blockOne != blockTwo) {
+                    //check if they are in the same x location
                     if (blockOne.center.x == blockTwo.center.x) {
                         v++
                     }
+                    //check if they are in the same y location
                     if (blockOne.center.y == blockTwo.center.y) {
                         h++
                     }
@@ -230,15 +234,11 @@ class GameWindow: UIViewController, BlockDelegate {
         }
         
         if won {
+            time?.invalidate() // cancel timer
             nextLevel()
         }
         
 }
-    
-    
-    
-    
-    
     /*
     *
     *       Helper functions
@@ -250,8 +250,6 @@ class GameWindow: UIViewController, BlockDelegate {
         gameScore += 100
         self.scoreLabel?.text = String(gameScore)
     }
-    
-    
     
     //this will send the score to the gameOverView which is controled by ViewController.swift
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -274,7 +272,9 @@ class GameWindow: UIViewController, BlockDelegate {
     }
     
     func timer() {
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateTimeLabel"), userInfo: nil, repeats: true)
+        timeLeftLable?.text = "00:\(String(timeLeft))"
+        time = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateTimeLabel"), userInfo: nil, repeats: true)
+        
     }
     
     func updateTimeLabel() {
@@ -290,6 +290,7 @@ class GameWindow: UIViewController, BlockDelegate {
         }
         
         if(timeLeft == 0) {
+            time?.invalidate() // cancel timer
             gameOver()
         }
     }
