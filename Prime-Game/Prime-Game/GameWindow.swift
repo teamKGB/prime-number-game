@@ -181,23 +181,19 @@ class GameWindow: UIViewController, BlockDelegate {
         gameStart()
     }
     
-    //detect collison function
-    func blockIsMoving(bl: Block) {
-        
-        for block in blocks {
-            if(bl != block) {
-                if bl.center.x == block.center.x && bl.center.y == block.center.y {
-                     println("overLapping")
-                    //do something here to prevent overlapping
-                    
-                }
-            }
-        }
-    }
-    
     //check for finding a valid rearrangement such that the sides of the rectangle provide a factoring of the number
     func blockHasMoved(bl: Block){
         
+        for block in blocks {
+            if (bl != block) {
+                if (bl.center.x == block.center.x && bl.center.y == block.center.y) {
+                    bl.center.x = bl.lastLocation.x
+                    bl.center.y = bl.lastLocation.y
+                    break
+                }
+            }
+        }
+
         var countForHor = 0
         var countForVer = 0
         var h = 0
