@@ -43,22 +43,22 @@ class GameWindow: UIViewController, BlockDelegate {
         
         //check how many block to produce in one level
         if(gameLevel <= 3) {
-            timeLeft = 25
-            while (blockNumbers < 5) {
-                blockNumbers = Int(arc4random_uniform(10)) + 1
+            timeLeft = 30
+            while (blockNumbers < 3) {
+                blockNumbers = Int(arc4random_uniform(8)) + 1
             }
         }
         else if (gameLevel <= 7) {
-            while (blockNumbers < 10) {
-                blockNumbers = Int(arc4random_uniform(20)) + 1
+            while (blockNumbers < 8) {
+                blockNumbers = Int(arc4random_uniform(16)) + 1
             }
-            timeLeft = 20
+            timeLeft = 25
         }
         else {
-            while (blockNumbers <= 13) {
-                blockNumbers = Int(arc4random_uniform(30)) + 1
+            while (blockNumbers <= 14) {
+                blockNumbers = Int(arc4random_uniform(24)) + 1
             }
-            timeLeft = 15
+            timeLeft = 20
         }
         
         timer() //set the timer
@@ -235,6 +235,7 @@ class GameWindow: UIViewController, BlockDelegate {
         
         if won {
             time?.invalidate() // cancel timer
+            incrementScore()
             nextLevel()
         }
         
