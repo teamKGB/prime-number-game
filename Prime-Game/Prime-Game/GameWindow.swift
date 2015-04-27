@@ -226,6 +226,7 @@ class GameWindow: UIViewController, BlockDelegate {
                 countForVer = v
             }
             
+            //failure conditions. 
             if (h < 1 || v < 1 || h != countForHor || v != countForVer) {
                 //not winning the game
                 won = false
