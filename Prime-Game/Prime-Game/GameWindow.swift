@@ -43,7 +43,7 @@ class GameWindow: UIViewController, BlockDelegate {
         
         //check how many block to produce in one level
         if(gameLevel <= 3) {
-            timeLeft = 20
+            timeLeft = 25
             while (blockNumbers < 5) {
                 blockNumbers = Int(arc4random_uniform(10)) + 1
             }
@@ -52,13 +52,13 @@ class GameWindow: UIViewController, BlockDelegate {
             while (blockNumbers < 10) {
                 blockNumbers = Int(arc4random_uniform(20)) + 1
             }
-            timeLeft = 15
+            timeLeft = 20
         }
         else {
             while (blockNumbers <= 13) {
                 blockNumbers = Int(arc4random_uniform(30)) + 1
             }
-            timeLeft = 10
+            timeLeft = 15
         }
         
         timer()
@@ -187,18 +187,57 @@ class GameWindow: UIViewController, BlockDelegate {
         for block in blocks {
             if(bl != block) {
                 if bl.center.x == block.center.x && bl.center.y == block.center.y {
-                     //println("overLapping")
-                    //do something he to prevent overlapping
+                     println("overLapping")
+                    //do something here to prevent overlapping
                     
                 }
             }
         }
     }
     
-    
+    //check for finding a valid rearrangement such that the sides of the rectangle provide a factoring of the number
     func blockHasMoved(bl: Block){
-        //check if the blocks are grouped
-    }
+        
+        var countForHor = 0
+        var countForVer = 0
+        var h = 0
+        var v = 0
+        var won = true
+    
+        for blockOne in blocks {
+            
+            h = 0
+            v = 0
+            
+            for blockTwo in blocks {
+             
+                if (blockOne != blockTwo) {
+                    if (blockOne.center.x == blockTwo.center.x) {
+                        v++
+                    }
+                    if (blockOne.center.y == blockTwo.center.y) {
+                        h++
+                    }
+                }
+            }
+            
+            if countForHor == 0 && countForVer == 0 {
+                countForHor = h
+                countForVer = v
+            }
+            
+            if (h < 1 || v < 1 || h != countForHor || v != countForVer) {
+                //not winning the game
+                won = false
+            }
+            
+        }
+        
+        if won {
+            nextLevel()
+        }
+        
+}
     
     
     
@@ -240,7 +279,6 @@ class GameWindow: UIViewController, BlockDelegate {
     
     func timer() {
         var timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateTimeLabel"), userInfo: nil, repeats: true)
-
     }
     
     func updateTimeLabel() {
